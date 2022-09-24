@@ -1,0 +1,24 @@
+<div id="comments">
+    <h2>Комментарии</h2>
+    <div id="comment-list">
+        <template id="template-comment">
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-name"></div>
+                    <div class="comment-date"></div>
+                    <?php if ($_SESSION['auth']) { echo '<span class="material-icons" id="btn-delete-comment" onclick="deleteComment(this)">delete</span>'; } ?>
+                </div>
+                <div class="comment-text"></div>
+            </div>
+        </template>
+    </div>
+    <form action="/engine/add_comment.php" id="form-settings" method="POST">
+        <label for="id" hidden>POST ID</label>
+        <input type="hidden" name="id" value="<?= $article['id'] ?>" hidden>
+        <label for="name">Ваше имя</label>
+        <input type="text" name="name" required>
+        <label for="content">Ваш комментарий</label>
+        <textarea name="content" cols="60" rows="4" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</div>

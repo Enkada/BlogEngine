@@ -1,0 +1,23 @@
+<form action="/engine/edit_settings.php" id="form-settings" method="POST" enctype="multipart/form-data">
+    <label for="title">Название блога</label>
+    <input type="text" name="blog_title" value="<?= get_setting('blog_title') ?>" required>
+    <label for="title">Подзаголовок</label>
+    <input type="text" name="blog_subtitle" value="<?= get_setting('blog_subtitle') ?>" required>
+    <label for="logo">Логотип</label>
+    <div id="settings-logo">
+        <img src="/engine/images/logo.jpg?v=<?= filemtime("engine/images/logo.jpg") ?>" id="settings-logo-preview">
+        <input type="button" value="Выбрать файл" onclick="document.getElementById('settings-logo-input').click()">
+        <input type="file" name="logo" id="settings-logo-input" accept="image/*" onchange="showLogo(this)" hidden>        
+    </div>   
+    
+    <fieldset>
+        <legend>Тема</legend>
+        <input type="radio" name="blog_theme" value="light" id="rbtn-light" <?php if (get_setting('blog_theme') == "light") { echo "checked"; } ?>>
+        <label for="rbtn-light">Светлая</label>
+        <input type="radio" name="blog_theme" value="dark" id="rbtn-dark" <?php if (get_setting('blog_theme') == "dark") { echo "checked"; } ?>>
+        <label for="rbtn-dark">Темная</label>
+        <input type="radio" name="blog_theme" value="console" id="rbtn-console" <?php if (get_setting('blog_theme') == "console") { echo "checked"; } ?>>
+        <label for="rbtn-console">Консоль</label>
+    </fieldset>
+    <button type="submit">Сохранить изменения</button>
+</form>

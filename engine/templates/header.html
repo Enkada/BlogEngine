@@ -1,0 +1,12 @@
+<header>
+    <a href="/" id="blog-logo" style="background-image: url('/engine/images/logo.jpg?v=<?= filemtime("engine/images/logo.jpg") ?>')"></a>
+     <a href="/" id="blog-title"><?= get_setting('blog_title') ?></a>
+     <div id="blog-subtitle"><?= get_setting('blog_subtitle') ?></div>
+     <nav id="blog-menu">
+         <ul>
+             <?php if ($_SESSION['auth']) { include "engine/templates/editor_nav.html"; } ?>
+             <li><a href="/calendar.php"><span class="material-icons">calendar_month</span></a></li>
+             <?php if ($_SERVER['PHP_SELF'] == '/index.php') { echo '<li><div id="search"><input type="search" hidden><span class="material-icons">search</span></div></li>'; }?>
+         </ul>
+     </nav>
+ </header> 

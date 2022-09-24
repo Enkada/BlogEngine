@@ -1,0 +1,677 @@
+:root {
+    --bodyBackgroundColor: rgb(255, 255, 255);
+    --textColor: rgb(0, 0, 0);
+    --textSubColor: rgb(68, 68, 68);
+    --tagTextColor: rgb(136, 136, 136);
+    --textFont: system-ui, -apple-system, BlinkMacSystemFont, "SF UI Text", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --contentWidth: 600px;
+    --hoverHighlightColor: red;
+    --linkColor: blue;
+    --inputBackground: white;
+    --accentGradient: linear-gradient(180deg, #ff8100, #ff4700);
+    --errorColor: darkred;
+    --accentHoverGradient: linear-gradient(0deg, #ff8100, #ff4700);
+    --accentBorderColor: #df5200;
+}
+
+body {
+    background-color: var(--bodyBackgroundColor);
+    color: var(--textColor);
+    font-family: var(--textFont);
+}
+
+/* Диалоговые окна */
+
+#modal-dialog-header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+#modal-dialog-header { 
+    display: flex;
+    background-color: #484848;
+    color: white !important;
+    margin: -1em -1em 1em -1em;
+    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
+
+#modal-error {
+    text-align: center;
+    color: var(--errorColor);
+}
+
+#btn-modal-close {
+    color: white;
+}
+
+dialog {
+    max-width: 50ch;
+    border: 2px solid grey;
+    background-color: var(--bodyBackgroundColor);
+}
+
+#dialog-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+#dialog-auth button {
+    width: 100%;
+}
+
+#dialog-auth div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+}
+
+dialog::backdrop {
+    background: #00000085;
+    backdrop-filter: blur(4px);
+}
+
+.btns-confirmation {
+    display: flex;
+    gap: 1em;
+}
+
+/* Теги */
+
+.tag-container {
+    border: 1px solid gray;
+    flex-wrap: wrap;
+    padding: .5em;
+    display: flex;
+    gap: .5em;
+}
+
+.tag {
+    display: flex;
+    cursor: default;
+    border: 1px solid grey;
+    border-radius: 1em;
+    gap: 2px;
+    align-items: center;
+    padding: 0 8px;
+    line-height: 24px;
+}
+
+.tag i {
+    color: grey;
+    font-size: 14pt;
+    margin-bottom: -2px;
+}
+
+.tag-container input {
+    font-family: var(--textFont);
+    font-size: 1em;
+    background-color: var(--bodyBackgroundColor);
+    color: var(--textColor);
+}
+
+.tag-container input {
+    padding: 0 !important;
+    flex: 1;
+    border: none;
+    outline: none;
+}
+
+/* Поиск */
+
+#search {
+    display: flex;
+    align-items: center;
+}
+
+#search input {
+    position: absolute;
+    background-color: #f3f3f3f2;
+    border: 1px solid;
+    padding: 4px 8px;
+    border-radius: 1em;
+    transform: translateX(-102%);
+    animation: opacityAnimation ease .5s;
+}
+
+@keyframes opacityAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+/* Установка */
+
+#form-settings {
+    max-width: var(--contentWidth);
+    margin: 2em auto;
+    display: grid;
+    align-items: start;
+    gap: 1em;
+}
+
+.btn {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="password"], textarea {
+    padding: 4px;
+    font-family: var(--textFont);
+    color: var(--textColor);
+    background-color: var(--inputBackground);
+    border: 1px solid grey;
+}
+
+input[type="submit"], input[type="button"], button, .btn {
+    width: fit-content;
+    padding: .75em 1.25em;
+    background: var(--accentGradient);
+    font-weight: bold;
+    color: white;
+    border: 2px solid var(--accentBorderColor);
+    border-radius: 2em;
+    font-family: var(--textFont);
+    transition: background .5s ease;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover, button:hover, .btn:hover {
+    background: var(--accentHoverGradient);
+}
+
+#form-settings textarea {
+    resize: vertical;
+}
+
+#form-settings button {
+    grid-column: 2;
+}
+
+#form-settings fieldset {
+    grid-column: 1 / span 2;
+}
+
+/* Шапка страницы */
+
+#blog-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--bodyBackgroundColor);
+    background-size: cover;
+    background-position: center;
+}
+
+#blog-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--textColor);
+    text-decoration: none;
+}
+
+#blog-subtitle {
+    font-size: 1.5em;
+    color: var(--textSubColor);
+}
+
+header {
+    display: grid;
+    max-width: var(--contentWidth);
+    margin: 2em auto;
+    justify-content: space-between;
+}
+
+header > h1, header > h2 {
+    width: fit-content;
+    grid-column: 1;
+}
+
+#blog-menu {
+    width: fit-content;
+    height: fit-content;
+    grid-row: 1 / span 3;
+    grid-column: 2;
+}
+
+#blog-menu > ul {
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: flex-end;  
+    gap: 0.5em;
+}
+
+/* Список статей */
+
+#article-list {
+    display: flex;
+    max-width: var(--contentWidth);
+    margin: auto;
+    flex-direction: column;
+    gap: 1em;
+}
+
+article {
+    width: 100%;
+}
+
+.article-body a {
+    color: var(--linkColor);
+}
+
+#article-list article, .comment, .article-body img{    
+    animation: fadeInAnimation ease 1s;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+     }
+}
+
+#article-single {
+    display: flex;
+    max-width: var(--contentWidth);
+    margin: auto;
+}
+
+#article-single .article-header > h1 > a {
+    color: var(--textColor);
+}
+
+.article-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5em;
+}
+
+.article-header > h1 > a {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+.article-footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    gap: 1em;
+    font-size: .8em;
+}
+
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8em;
+}
+
+.article-tag {
+    text-decoration: none;
+    color: var(--tagTextColor);
+}
+
+.article-body img, .article-body video, .article-body audio {
+    max-width: 100%;
+}
+
+.image-collection {
+    display: flex;
+    overflow-x: scroll;
+    margin: 1em 0;
+    height: 600px;
+}
+
+.image-collection img {
+    max-width: initial;
+    margin: 0;
+}
+
+#btn-text-format {
+    color: var(--tagTextColor);
+    display: block;
+    margin-top: .5em;
+    text-decoration: dotted;
+    cursor: pointer;
+    font-size: small;
+}
+
+#btn-text-format:hover {
+    text-decoration: underline;
+    user-select: none;
+}
+
+#text-format-content {
+    background: var(--bodyBackgroundColor);
+    position: absolute;
+    margin-right: 0.5em;
+    border: 1px solid grey;
+    border-radius: 0 1em 1em;
+    padding: 1em;
+    transform: translateY(0.5em);
+    font-size: small;
+    box-shadow: 3px 3px 8px #00000047;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: .5em;
+    max-width: 510px;
+}
+
+#text-format-content > span:nth-of-type(2n+1) {
+    color: var(--tagTextColor);
+}
+
+/* Прикрепление файлов */
+
+.form-attachemnts {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-attachemnt-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    margin-bottom: 0.5em;
+}
+
+.attachment-image {
+    height: 48px;
+    width: 96px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--tagTextColor);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: box-shadow .5s ease;
+}
+
+.attachment-image:hover {
+    box-shadow: inset 0 0 20px 14px black;
+}
+
+.attachment-image:hover span {
+    opacity: 1;
+}
+
+.attachment-image span {
+    color: white;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.attachment-other {
+    display: flex;
+    width: 100%;
+}
+
+.attachment-other span:nth-of-type(1) {
+    cursor: pointer;
+}
+
+.attachment-other span:nth-of-type(1):hover {
+    color: var(--hoverHighlightColor);
+}
+
+.form-attachemnts-buttons {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: .2em;
+}
+
+.form-attachemnts-buttons span:nth-of-type(2) {
+    padding: .2em;
+    transition: background-color .5s ease;
+}
+
+#form-attachments-gallery {    
+    background: var(--tagTextColor);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    padding: .5em;
+    animation: opacityAnimation ease .5s;
+}
+
+#form-attachments-gallery img {
+    max-height: 48px;
+    border: 1px solid var(--tagTextColor);
+    cursor: pointer;
+}
+
+.btn-toggled {
+    background-color: var(--tagTextColor);
+    color: var(--bodyBackgroundColor) !important;
+}
+
+/* Комментарии */
+
+#comments {
+    max-width: var(--contentWidth);
+    margin: 2em auto;
+}
+
+#comment-list {
+    margin: 2em 0;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+
+.comment-name {
+    font-weight: bold;
+}
+
+.comment-date {
+    color: var(--tagTextColor);
+}
+
+.comment-header {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+/* Футер страницы */
+
+footer {
+    max-width: var(--contentWidth);
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    color: #9f9f9f;
+}
+
+/* Настройки */
+
+#settings-logo-preview {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+}
+
+#settings-logo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#btn-delete-article {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    color: var(--errorColor);
+    width: fit-content;
+    margin: auto;
+    transition: filter .5s ease;
+}
+
+#btn-delete-article .material-icons {
+    color: var(--errorColor);
+}
+
+#btn-delete-article:hover {
+    filter: drop-shadow(0 0 8px --errorColor);
+}
+
+
+/* Гугловские иконки */
+
+.material-icons {
+    cursor: pointer;
+    color: var(--textColor);
+    transition: color .3s ease;
+    width: fit-content;
+    user-select: none;
+}
+
+#btn-login {
+    color: green;
+    opacity: 0.25;
+    transition: opacity 1s ease;
+}
+
+#btn-login:hover {
+    opacity: 1;
+}
+
+/* Media */
+
+iframe, video, audio, img {
+    margin: .5em 0;
+}
+
+/* HIGHLIGHT */
+
+.material-icons, .article-tag, .article-header > h1 > a, #blog-title {
+    transition: color .5s ease;
+}
+
+.material-icons:hover, .article-tag:hover, .article-header > h1 > a:hover, #blog-title:hover, #calendar-articles-list a:hover {
+    color: var(--hoverHighlightColor);
+}
+
+/* Календарь */
+
+#calendar {
+    max-width: var(--contentWidth);
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.calendar-month {
+    max-width: 400px;
+    width: 100%;
+}
+
+.calendar-month-name {
+    text-align: center;
+    padding: .5em;
+    font-weight: bold;
+}
+
+.calendar-month-day-names {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-month-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: .5em;    
+}
+
+.calendar-month-day-name {
+    text-align: center;  
+    padding: .5em;
+}
+
+.calendar-month-day {
+    user-select: none;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px 0px #0000004d;
+}
+
+.date-has-articles {
+    background-image: linear-gradient(to bottom, #ffd08c, #ff9ef3);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform .5s ease;
+    background-position: center;
+    background-size: cover;
+}
+
+.date-has-articles-image {
+    background-color: #979797;
+    background-blend-mode: multiply;
+}
+
+.date-has-articles:hover {
+    transform: scale(1.5);
+}
+
+#calendar-articles {
+    animation: opacityAnimation ease .5s;
+    max-width: 400px;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+#calendar-articles-date {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#calendar-articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+#calendar-articles-list a {
+    display: list-item;
+    list-style: inside;
+    list-style-type: square;
+    text-decoration: none;
+    color: var(--textColor);
+    transition: color .5s ease;
+}

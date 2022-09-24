@@ -1,0 +1,31 @@
+<i id="btn-text-format">Формат</i>
+<div id="text-format-content" style="display: none;">
+    <span>Изображения</span>
+    <span>https://site.ru/image.png <i style="color: grey;">или</i> image.jpeg <i>(прикрепление файлов)</i> <br> 
+        <i>Несколько изображений собираются в коллекцию</i><br>
+    </span>  
+    <span>Видео</span>
+    <span>https://site.ru/video.mp4 <i style="color: grey;">или</i> video.webm <i>(прикрепление файлов)</i></span>   
+    <span>Аудио</span>
+    <span>https://site.ru/audio.mp3 <i style="color: grey;">или</i> audio.ogg <i>(прикрепление файлов)</i></span> 
+    <span>Видео YouTube</span>
+    <span>https://www.youtube.com/watch?v=dQw4w9WgXcQ</span> 
+    <span></span>
+    <span style="font-weight: bold;">Каждая ссылка (или имя) на медиа-файл должна располагаться на отдельной строке!</span>
+    <span>Ссылка</span>
+    <span>((https://site.ru/ Мой сайт))</span>
+    
+    <span>Жирный текст</span>
+    <span>**Жирный текст**</span>
+    <span>Курсивный текст</span>
+    <span>//Курсивный текст//</span>
+    <span>Зачеркнутый текст</span>
+    <span>--Зачеркнутый текст--</span>
+</div>
+<script>
+const textFormat = document.querySelector('#text-format-content');
+
+document.querySelector('#btn-text-format').addEventListener('click', () => {
+    textFormat.style.display = textFormat.style.display == "none" ? "grid" : "none";
+});
+</script>

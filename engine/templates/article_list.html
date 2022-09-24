@@ -1,0 +1,17 @@
+<div id="article-list">
+    <?php if ($data == "null" && $_SESSION['auth']) { echo '<p>Блог создан, но он пока пуст. <a href="new.php">Напишите новую статью</a>.</p>'; } ?>
+    <?php if ($data == "null" && !$_SESSION['auth']) { echo '<p>В этом блоге еще нет статей.</p>'; } ?>
+    <template id="template-article">
+        <article>
+            <section class="article-header">
+                <h1><a class="article-title"></a></h1>
+                <?php if ($_SESSION['auth']) { echo '<a class="article-edit"><span class="material-icons">edit</span></a>'; } ?>
+            </section>
+            <section class="article-body"></section>
+            <section class="article-footer">
+                <div class="article-date"></div>
+                <div class="article-tags"></div>
+            </section>
+        </article>
+    </template>
+</div>

@@ -1,0 +1,30 @@
+<label for="title">Название</label>
+<input type="text" name="title" value="<?= $title ?>" required>
+
+<label for="content">Текст
+    <?php include "engine/templates/format.html" ?>  
+</label>
+<textarea name="content" cols="60" rows="10" required><?= $text ?></textarea>
+
+<label for="attachments" hidden>ATTACHMENTS</label>
+<input type="file" name="attachments[]" multiple hidden> 
+<div class="form-attachemnts">
+    <div class="form-attachemnt-list"></div>
+
+    <input type="file" form="" id="form-attachemnts-input" onchange="addAttachment(this)" hidden>  
+    <div class="form-attachemnts-buttons">
+        <span class="material-icons" onclick="document.getElementById('form-attachemnts-input').click()">attach_file</span>
+        <?php if ($attachments != "null") { echo '<span class="material-icons">collections</span>'; } ?>
+    </div>
+    <div id="form-attachments-gallery" style="display: none;"></div>
+</div>
+<script src="/engine/js/attachments.js"></script>
+
+<label for="tags" hidden>TAGS</label>
+<input type="hidden" name="tags">
+
+<label>Теги</label>
+<div class="tag-container">
+    <input form="" placeholder="Введите тег и нажмите Enter"/>
+</div>
+<script src="/engine/js/tags.js"></script>

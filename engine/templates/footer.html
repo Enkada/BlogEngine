@@ -1,0 +1,7 @@
+<footer>        
+    <span>Движок для блога Hedgehog</span>
+    <span>© Кирилл и Даниил, 2022</span>
+    <?php if (!$_SESSION['auth']) { echo '<span class="material-icons" id="btn-login" onclick="showAuth()">lock</span>';} ?>
+</footer>
+
+<?php include "modal_dialog.html"; ?>

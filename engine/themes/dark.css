@@ -1,0 +1,11 @@
+:root {
+    --bodyBackgroundColor: rgb(0, 0, 0);
+    --textColor: rgb(201, 201, 201);
+    --linkColor: #9898ff;
+    --inputBackground: #222222;
+    --errorColor: #d13e3e;
+    --accentGradient: linear-gradient(180deg, #707070, #2c2c2c);
+    --accentHoverGradient: linear-gradient(0deg, #707070, #2c2c2c);
+    --accentBorderColor: #5a5a5a;
+    color-scheme: dark;
+}

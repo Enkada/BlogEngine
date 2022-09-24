@@ -1,0 +1,12 @@
+:root {
+    --bodyBackgroundColor: rgb(31, 31, 31);
+    --textColor: rgb(0, 207, 10);
+    --textSubColor: rgb(49 96 42);
+    --textFont: 'Courier New';
+    --inputBackground: #222222;
+    --accentGradient: linear-gradient(180deg, #072000, #014800);
+    --accentHoverGradient: linear-gradient(0deg, #072000, #014800);
+    --linkColor: #bcffbe;
+    --accentBorderColor: #008b07;
+    color-scheme: dark;
+}
